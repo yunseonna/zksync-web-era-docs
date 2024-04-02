@@ -18,6 +18,12 @@ Fill in the following details for the zkSync network:
 
 ## Mainnet network info
 
+Add zkSync Era Mainnet automatically using the button below:
+
+<network-adder network="mainnet"></network-adder>
+
+**Network details:**
+
 - Network Name: `zkSync Era Mainnet`
 - RPC URL: `https://mainnet.era.zksync.io`
 - Chain ID: `324`
@@ -26,6 +32,12 @@ Fill in the following details for the zkSync network:
 - WebSocket URL: `wss://mainnet.era.zksync.io/ws`
 
 ## Sepolia testnet network info
+
+Add zkSync Era testnet automatically using the button below:
+
+<network-adder network="testnet"></network-adder>
+
+**Network details:**
 
 - Network Name: `zkSync Era Sepolia Testnet`
 - RPC URL: `https://sepolia.era.zksync.dev`
