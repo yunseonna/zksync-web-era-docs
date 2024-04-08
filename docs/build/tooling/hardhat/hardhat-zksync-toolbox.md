@@ -13,7 +13,6 @@ List of contained plugins:
 
 - [hardhat-zksync-solc](./hardhat-zksync-solc.md)
 - [hardhat-zksync-deploy](./hardhat-zksync-deploy.md)
-- [hardhat-zksync-chai-matchers](./hardhat-zksync-chai-matchers.md)
 - [hardhat-zksync-verify](./hardhat-zksync-verify.md)
 
 ::: tip Popular Hardhat plugins

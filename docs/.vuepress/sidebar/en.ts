@@ -271,7 +271,6 @@ export const enSidebar = sidebar({
             "/build/tooling/hardhat/hardhat-zksync-vyper.md",
             "/build/tooling/hardhat/hardhat-zksync-deploy.md",
             "/build/tooling/hardhat/hardhat-zksync-upgradable.md",
-            "/build/tooling/hardhat/hardhat-zksync-chai-matchers.md",
             "/build/tooling/hardhat/hardhat-zksync-verify.md",
             "/build/tooling/hardhat/hardhat-zksync-verify-vyper.md",
             "/build/tooling/hardhat/hardhat-zksync-ethers.md",
