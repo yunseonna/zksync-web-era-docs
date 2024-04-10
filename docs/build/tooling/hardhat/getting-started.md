@@ -25,6 +25,7 @@ zkSync Era has the following official plugins for Hardhat:
 - [@matterlabs/hardhat-zksync-upgradable](./hardhat-zksync-upgradable.md) - used to deploy, update, and verify proxy smart contracts.
 - [@matterlabs/hardhat-zksync-ethers](./hardhat-zksync-ethers.md) - wrapper around zksync-ethers with some extra Hardhat-specific functionality.
 - [@matterlabs/hardhat-zksync-node](./hardhat-zksync-node.md) - used to run the zkSync era-test-node locally.
+- [@matterlabs/hardhat-zksync](./hardhat-zksync.md) - used to access to all of the supported plugins and to use them as needed in your project.
 
 ::: tip Additional plugins
 Learn more about [other plugins from the community](./other-plugins.md) that you can use with zkSync Era.
