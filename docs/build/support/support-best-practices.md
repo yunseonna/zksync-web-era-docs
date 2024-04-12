@@ -10,6 +10,7 @@ head:
 ## Resources
 
 ### AI-Powered Assistance
+
 Leverage AI tools tailored for different aspects of zkSync development:
 
 - **GleenAI**: A specialized AI trained on zkSync, offering precise answers to your development questions. Access it directly [here](https://gleen.ai/playground/zksync) or via the 📟│dev-ai-support channel in our Discord community.
