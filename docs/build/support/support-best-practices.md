@@ -40,7 +40,7 @@ When seeking answers from AI for coding or developer questions optimizing how yo
 
 For community-driven platforms like GitHub Discussions and Discord, here are practices to enhance your support experience and contribute to community efficiency:
 
-**Discord and Github Discussions** 
+**Discord and Github Discussions**
 
 1. **Use the Search Feature First**: Before posting a new question, search for existing discussions or messages related to your issue. This minimizes duplicates and leverages existing solutions, accelerating your troubleshooting process.
 

@@ -275,6 +275,8 @@ UUPS
 Uups
 TLDR
 inversed
+Gleen
+Phind
 
 // crypto events
 Edcon
