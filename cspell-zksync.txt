@@ -129,6 +129,7 @@ Zetta
 Zetta
 Plonky
 Zeeve
+Chainlink
 
 // NFT Marketplaces
 Kreatorland
