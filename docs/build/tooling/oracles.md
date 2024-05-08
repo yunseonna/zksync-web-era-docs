@@ -25,7 +25,7 @@ Welcome to the Oracles page, a comprehensive hub dedicated to interacting with o
 
 ### Pyth
 
-[Pythnet](https://docs.pyth.network/documentation/pythnet-price-feeds) price feeds use a "pull" price update model, where users are responsible for posting price updates on-chain when needed. Checkout the usage guide to get started today!
+[Pythnet](https://docs.pyth.network/price-feeds) price feeds use a "pull" price update model, where users are responsible for posting price updates on-chain when needed. Checkout the usage guide to get started today!
 
 ### Usage guides
 
