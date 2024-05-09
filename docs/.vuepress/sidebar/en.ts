@@ -271,11 +271,10 @@ export const enSidebar = sidebar({
             "/build/tooling/hardhat/hardhat-zksync-vyper.md",
             "/build/tooling/hardhat/hardhat-zksync-deploy.md",
             "/build/tooling/hardhat/hardhat-zksync-upgradable.md",
-            "/build/tooling/hardhat/hardhat-zksync-chai-matchers.md",
             "/build/tooling/hardhat/hardhat-zksync-verify.md",
             "/build/tooling/hardhat/hardhat-zksync-verify-vyper.md",
             "/build/tooling/hardhat/hardhat-zksync-ethers.md",
-            "/build/tooling/hardhat/hardhat-zksync-toolbox.md",
+            "/build/tooling/hardhat/hardhat-zksync.md",
             "/build/tooling/hardhat/hardhat-zksync-node.md",
             "/build/tooling/hardhat/other-plugins.md",
           ]
@@ -392,6 +391,7 @@ export const enSidebar = sidebar({
                 "/build/sdks/js/features",
                 "/build/sdks/js/utils",
                 "/build/sdks/js/paymaster-utils",
+                "/build/sdks/js/smart-account-utils",
                 "/build/sdks/js/types",
                 "/build/sdks/js/front-end",
               ],
@@ -408,6 +408,7 @@ export const enSidebar = sidebar({
                 "/build/sdks/js/zksync-ethers/features",
                 "/build/sdks/js/zksync-ethers/utils",
                 "/build/sdks/js/zksync-ethers/paymaster-utils",
+                "/build/sdks/js/zksync-ethers/smart-account-utils",
                 "/build/sdks/js/zksync-ethers/types",
                 "/build/sdks/js/zksync-ethers/front-end",
                 "/build/sdks/js/zksync-ethers/migration"

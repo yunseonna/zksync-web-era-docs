@@ -64,7 +64,7 @@ yarn add -D @matterlabs/zksync-contracts @openzeppelin/contracts@4.9.5
 ```
 
 ::: warning
-This project does not use the latest version available of `@openzeppelin/contracts`. Mae sure you install the specific version mentioned above.
+This project does not use the latest version available of `@openzeppelin/contracts`. Make sure you install the specific version mentioned above.
 :::
 
 5. Include the `isSystem: true` setting in the `zksolc` section of the `hardhat.config.ts` configuration file to allow interaction with system contracts:
@@ -600,7 +600,8 @@ contract Account is IAccount, IERC1271, SpendLimit {
     function executeTransactionFromOutside(
         Transaction calldata _transaction
     ) external payable {
-        _validateTransaction(bytes32(0), _transaction);
+        bytes4 magic = _validateTransaction(bytes32(0), _transaction);
+        require(magic == ACCOUNT_VALIDATION_SUCCESS_MAGIC, "NOT VALIDATED");
         _executeTransaction(_transaction);
     }
 
