@@ -240,6 +240,7 @@ jemalloc
 recid
 plux
 pipx
+Gbps
 
 // ETC
 gitter
