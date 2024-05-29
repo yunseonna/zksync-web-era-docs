@@ -118,17 +118,17 @@ try {
 }
 ```
 
-To send a message from L2 to L1, we're interacting with the messenger contract, which address and ABI are provided in the `utils.L1_MESSENGER_ADDRESS` and `utils.L1_MESSENGER` of `zksync-ethers`. The method we're using is `sendToL1` and we're passing the message in UTF8 bytes format. Feel free to adapt the message in the `MESSAGE` variable.
+To send a message from L2 to L1, we're interacting with the zkSync messenger contract. Both the address and ABI are provided in the `utils.L1_MESSENGER_ADDRESS` and `utils.L1_MESSENGER` of `zksync-ethers`. The method we're using is `sendToL1` and we're passing the message in UTF8 bytes format.
 
-To execute this script, run:
+Adapt the message in the `MESSAGE` variable and execute the script running:
 
-```sh
+```bash
 ts-node 1.send-message.ts
 ```
 
 You should see the following output:
 
-```sh
+```bash
 Sending message to L1 with text Some L2->L1 message
 L2 trx hash is  0x926efb47c374478191645a138c5d110e6a6a499ea542e14bcb583918646f7db5
 Check https://sepolia.explorer.zksync.io/tx/0x926efb47c374478191645a138c5d110e6a6a499ea542e14bcb583918646f7db5
@@ -136,9 +136,11 @@ Check https://sepolia.explorer.zksync.io/tx/0x926efb47c374478191645a138c5d110e6a
 
 ### 2. Retrieve the message transaction details
 
-In order to continue, we need the transaction that sent the message to be included in a batch and sent to L1 (this time varies depending on the network activity and could be around one hour).
+::: info Transaction must be included in a batch
+In order to continue, we need the transaction that sent the message to be included in a batch and sent to L1. This time varies depending on the network activity and could be around one hour.
+:::
 
-Create a `2.get-tx-details.ts` file in the root directory with the next script:
+For the next steps we'd need information about the L2 block and L1 batch the transaction was included into. Create a `2.get-tx-details.ts` file in the root directory with the next script:
 
 ```ts
 // The following retrieves an L2-L1 transaction details
@@ -173,13 +175,13 @@ This script retrieves the transaction receipt. The fields we're interested in ar
 
 Enter the transaction hash from [the previous step](#1-send-the-message) in the `TX_HASH` variable and run the script with:
 
-```sh
+```bash
 ts-node 2.get-tx-details.ts
 ```
 
 You'll get the following output:
 
-```sh
+```bash
 Getting L2 tx details for transaction 0x7be3434dd5f886bfe2fe446bf833f09d1be08e0a644a4996776fec569c3801a0
 L2 transaction included in block 2607311 with index 0
 L1 batch number is 9120 and tx index in L1 batch is 953
@@ -188,7 +190,7 @@ Check https://sepolia.explorer.zksync.io/tx/0x7be3434dd5f886bfe2fe446bf833f09d1b
 
 ### 3. Retrieve the message proof
 
-To retrieve the proof that the message was sent to L1, Create a `3.get-proof.ts` file in the root directory with the next script:
+To retrieve the proof that the message was sent to L1, create a `3.get-proof.ts` file in the root directory with the next script:
 
 ```ts
 import { Provider } from "zksync-ethers";
@@ -213,17 +215,17 @@ try {
 }
 ```
 
-The `getLogProof` method requires the L2 transaction hash and the L2 transaction index that [we retrieved in the previous step](#2-retrieve-the-message-transaction-details) from the transaction receipt.
+The `getLogProof` method requires the L2 transaction hash and the L2 transaction index included in the transaction receipt that [we retrieved in the previous step](#2-retrieve-the-message-transaction-details) .
 
 Enter the hash and index in the `TX_HASH` and `L2_TX_INDEX` variables and run the script with:
 
-```sh
+```bash
 ts-node 3.get-proof.ts
 ```
 
 You'll get an output similar to this:
 
-```sh
+```bash
 Getting L2 message proof for transaction 0x7be3434dd5f886bfe2fe446bf833f09d1be08e0a644a4996776fec569c3801a0 and index 0
 Proof is:  {
   id: 15,
@@ -249,10 +251,9 @@ Proof is:  {
 
 ### 4. Verify the message transaction proof
 
-Once we have a proof, we can verify that it was actually included in L1. Create a `4.prove-inclusion.ts` file in the root directory with the next script:
+Once we have a proof that the message was sent from L2, we can verify that it was actually included in L1. Create a `4.prove-inclusion.ts` file in the root directory with the next script:
 
 ```ts
-
 import * as ethers from "ethers";
 import { Provider, utils } from "zksync-ethers";
 
@@ -309,13 +310,15 @@ This scripts interacts with the `proveL2MessageInclusion` method of the zkSync c
 
 Enter all these details in the `SENDER`, `MESSAGE`, `L1_BATCH_NUMBER`, `L1_BATCH_TX_INDEX` and `PROOF` variables and execute the script with:
 
-```sh
+```bash
 ts-node 4.prove-inclusion.ts
 ```
 
 You'll get the following output:
 
-```sh
+```bash
 Retrieving proof for batch 9120, transaction index 953 and proof id 15
 Result is :>>  true
 ```
+
+This indicates the proof is valid and the message was actually included in L1.
