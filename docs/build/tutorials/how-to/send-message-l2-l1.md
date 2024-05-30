@@ -39,9 +39,9 @@ Along with zkSync Era's built-in censorship resistance, which requires multi-lay
 - Bridging funds from L2 to L1.
 - Layer 2 governance.
 
-## Step-by-step
+## Example using zksync-ethers
 
-### Project setup
+### 1. Project setup
 
 1. Create a project folder and `cd` into it
 
@@ -74,7 +74,7 @@ yarn global add ts-node
 WALLET_PRIVATE_KEY=0x..;
 ```
 
-### 1. Send the message
+### 2. Send the message
 
 To send a message from L2 to L1, we are going to interact with the zkSync messenger contract.
 
@@ -136,7 +136,7 @@ L2 trx hash is  0x926efb47c374478191645a138c5d110e6a6a499ea542e14bcb583918646f7d
 Check https://sepolia.explorer.zksync.io/tx/0x926efb47c374478191645a138c5d110e6a6a499ea542e14bcb583918646f7db5
 ```
 
-### 2. Retrieve the message transaction details
+### 3. Retrieve the message transaction details
 
 ::: info Transaction must be included in a batch
 In order to continue, we need the transaction that sent the message to be included in a batch and sent to L1. This time varies depending on the network activity and could be around one hour.
@@ -190,7 +190,7 @@ L1 batch number is 9120 and tx index in L1 batch is 953
 Check https://sepolia.explorer.zksync.io/tx/0x7be3434dd5f886bfe2fe446bf833f09d1be08e0a644a4996776fec569c3801a0 for more details
 ```
 
-### 3. Retrieve the message proof
+### 4. Retrieve the message proof
 
 To retrieve the proof that the message was sent to L1, create a `3.get-proof.ts` file in the root directory with the next script:
 
@@ -251,7 +251,7 @@ Proof is:  {
 }
 ```
 
-### 4. Verify the message transaction proof
+### 5. Verify the message transaction proof
 
 Once we have a proof that the message was sent from L2, we can verify that it was actually included in L1. Create a `4.prove-inclusion.ts` file in the root directory with the next script:
 
