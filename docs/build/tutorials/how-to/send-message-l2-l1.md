@@ -29,12 +29,12 @@ struct L2Message {
 :::tip Verification
 
 - Verification and confirmation is possible using Ethereum data.
-- However, zkSync Era has an efficient [request proof function](#prove-the-result) which does the same.
+- However, zkSync Era has an efficient [request proof function](#3-retrieve-the-message-proof) which does the same.
   :::
 
 ## Common use cases
 
-Along with zkSync Era's built-in censorship resistance that requires multi-layer interoperability, there are some common use cases that need L2 to L1 transaction functionality, such as:
+Along with zkSync Era's built-in censorship resistance, which requires multi-layer interoperability, there are some common use cases that need L2 to L1 transaction functionality, such as:
 
 - Bridging funds from L2 to L1.
 - Layer 2 governance.
@@ -53,7 +53,7 @@ cd message-l2
 2. Initialise the project:
 
 ```sh
-yarn init add -y
+yarn init -y
 ```
 
 3. Install the required dependencies:
@@ -68,7 +68,7 @@ yarn add -D zksync-ethers ethers typescript dotenv @matterlabs/zksync-contracts 
 yarn global add ts-node
 ```
 
-5. In the root folder add `.env` file with private key of wallet to use
+5. In the root folder, add a `.env` file with the private key of the wallet to use:
 
 ```md
 WALLET_PRIVATE_KEY=0x..;
@@ -76,7 +76,9 @@ WALLET_PRIVATE_KEY=0x..;
 
 ### 1. Send the message
 
-To send a message from L2 to L1, we going to interact with the zkSync messenger contract. Both the address and ABI are provided in the `utils.L1_MESSENGER_ADDRESS` and `utils.L1_MESSENGER` of `zksync-ethers`. The method we're using is `sendToL1` and we're passing the message in UTF8 bytes format.
+To send a message from L2 to L1, we are going to interact with the zkSync messenger contract.
+
+Both the address and ABI are provided in the `utils.L1_MESSENGER_ADDRESS` and `utils.L1_MESSENGER` of `zksync-ethers`. The method we're using is `sendToL1` and we're passing the message in UTF8 bytes format.
 
 Create a `1.send-message.ts` file in the root directory with the next script:
 
@@ -120,7 +122,7 @@ try {
 }
 ```
 
-Adapt the message in the `MESSAGE` variable and execute the script running:
+Adapt the message in the `MESSAGE` variable and execute the script by running:
 
 ```bash
 ts-node 1.send-message.ts
@@ -215,7 +217,7 @@ try {
 }
 ```
 
-The `getLogProof` method requires the L2 transaction hash and the L2 transaction index included in the transaction receipt that [we retrieved in the previous step](#2-retrieve-the-message-transaction-details) .
+The `getLogProof` method requires the L2 transaction hash and the L2 transaction index, both of which are included in the transaction receipt that [we retrieved in the previous step](#2-retrieve-the-message-transaction-details).
 
 Enter the hash and index in the `TX_HASH` and `L2_TX_INDEX` variables and run the script with:
 
@@ -298,7 +300,7 @@ try {
 
 ```
 
-This scripts interacts with the `proveL2MessageInclusion` method of the zkSync contract in L1. This method requires the following parameters:
+This scripts interacts with the `proveL2MessageInclusion` method of the zkSync contract on L1. This method requires the following parameters:
 
 - `l1BatchNumber`: Batch number the L2 transaction was included into.
 - `proofId`: the `id` of the proof retrieved in step 3.
