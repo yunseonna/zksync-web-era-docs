@@ -65,16 +65,18 @@ yarn add -D zksync-ethers ethers typescript dotenv @matterlabs/zksync-contracts 
 4. Install `ts-node` globally to execute the scripts that we're going to create:
 
 ```sh
-yarn install -g ts-node
+yarn global add ts-node
 ```
 
 5. In the root folder add `.env` file with private key of wallet to use
 
 ```md
-WALLET_PRIV_KEY=0x..;
+WALLET_PRIVATE_KEY=0x..;
 ```
 
 ### 1. Send the message
+
+To send a message from L2 to L1, we going to interact with the zkSync messenger contract. Both the address and ABI are provided in the `utils.L1_MESSENGER_ADDRESS` and `utils.L1_MESSENGER` of `zksync-ethers`. The method we're using is `sendToL1` and we're passing the message in UTF8 bytes format.
 
 Create a `1.send-message.ts` file in the root directory with the next script:
 
@@ -118,8 +120,6 @@ try {
 }
 ```
 
-To send a message from L2 to L1, we're interacting with the zkSync messenger contract. Both the address and ABI are provided in the `utils.L1_MESSENGER_ADDRESS` and `utils.L1_MESSENGER` of `zksync-ethers`. The method we're using is `sendToL1` and we're passing the message in UTF8 bytes format.
-
 Adapt the message in the `MESSAGE` variable and execute the script running:
 
 ```bash
@@ -140,7 +140,7 @@ Check https://sepolia.explorer.zksync.io/tx/0x926efb47c374478191645a138c5d110e6a
 In order to continue, we need the transaction that sent the message to be included in a batch and sent to L1. This time varies depending on the network activity and could be around one hour.
 :::
 
-For the next steps we'd need information about the L2 block and L1 batch the transaction was included into. Create a `2.get-tx-details.ts` file in the root directory with the next script:
+For the next steps we'll need information about the L2 block and L1 batch the transaction was included into. Create a `2.get-tx-details.ts` file in the root directory with the next script:
 
 ```ts
 // The following retrieves an L2-L1 transaction details
@@ -158,7 +158,7 @@ export async function getTransactionDetails(hash: string) {
 }
 
 try {
-  // To run this script on stand alone mode, you need to provide the tx hash
+  // To run this script on stand alone mode, you need to provide the L2 tx hash
   const TX_HASH = "";
   getTransactionDetails(TX_HASH);
 } catch (error) {
