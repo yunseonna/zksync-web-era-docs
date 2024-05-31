@@ -11,6 +11,10 @@ head:
 
 [Alchemy](https://www.alchemy.com/zksync) is a leading developer platform with powerful APIs, SDKs, and tools to build truly scalable onchain apps. Deploy on zkSync Mainnet and zkSync Sepolia Testnet using Alchemy's free and [paid plans](https://www.alchemy.com/pricing).
 
+### All That Node
+
+[All That Node](https://www.allthatnode.com/zksync.dsrv) is a one-stop solution for interacting with zkSync securely, simply, and quickly.
+
 ### Ankr
 
 [Ankr](https://www.ankr.com/rpc/zksync_era/) provides private and public RPC endpoints for zkSync, powered by a globally distributed and decentralized network of nodes. They offer free and [paid plans](https://www.ankr.com/rpc/pricing/) with increased request limits.
